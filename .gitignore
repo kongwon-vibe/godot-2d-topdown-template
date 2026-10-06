@@ -15,3 +15,6 @@ addons/Todo_Manager/todo.cfg
 
 .vscode/
 .DS_Store
+# Track the shared web preset; generated builds stay local.
+!export_presets.cfg
+build/

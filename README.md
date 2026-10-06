@@ -92,3 +92,22 @@ Check out my [RPG Maker games](https://store.steampowered.com/search/?developer=
 Enjoy creating! 🚀
 
 <a href="https://ko-fi.com/stesproject" target="_blank"><img src="https://cdn.ko-fi.com/cdn/kofi1.png?v=3" alt="Ko-Fi" width="145px"></a>
+
+## Web test deployment
+
+This independent copy is based on [stesproject/godot-2d-topdown-template](https://github.com/stesproject/godot-2d-topdown-template); the original MIT license is retained.
+
+Push to `web-test` to build with Godot **4.7.2** and deploy to GitHub Pages. In repository Settings → Pages, select **GitHub Actions** as the source. The `github-pages` environment must allow deployments from `web-test`.
+
+For local testing:
+
+```sh
+godot --headless --editor --path . --import --quit
+mkdir -p build/web
+godot --headless --path . --export-release Web build/web/index.html
+python3 -m http.server 8000 --directory build/web
+```
+
+Open http://localhost:8000. The Web preset uses single-threaded WebAssembly and the Compatibility renderer, so no cross-origin isolation headers are required. Use a desktop browser with WebGL 2 support.
+
+Controls: arrow keys to move, Shift to run, Space to jump, A to attack, E/Enter to interact, I for inventory.
